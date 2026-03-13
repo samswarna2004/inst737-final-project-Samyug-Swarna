@@ -1,0 +1,5 @@
+measure_name,clean_column_name,description,used_in_model
+Obesity,obesity_pct,Estimated obesity prevalence at the ZCTA level,Yes
+Physical Inactivity,physical_inactivity_pct,Estimated prevalence of physical inactivity at the ZCTA level,Yes
+Gym Count,gym_count,Count of gym and fitness-related OSM features within the ZCTA,Yes
+Gyms Per 10000 Adults,gyms_per_10000_adults,Number of gyms per 10000 adults in the ZCTA,Yes

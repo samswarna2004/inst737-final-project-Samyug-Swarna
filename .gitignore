@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Large raw data files
+data/raw/
+*.zip
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.xml
+
+# Generated outputs
+data/transformed/
+data/model_outputs/
+data/visualizations/

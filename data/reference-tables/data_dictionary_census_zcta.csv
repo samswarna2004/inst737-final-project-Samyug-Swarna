@@ -1,0 +1,3 @@
+column_name,data_type,description,example_value,used_in_project
+ZCTA5CE20,string,2020 5-digit ZIP Code Tabulation Area code,20740,Yes
+geometry,geometry,Polygon geometry representing the ZCTA boundary,POLYGON(...),Yes

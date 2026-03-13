@@ -1,0 +1,8 @@
+column_name,data_type,description,example_value,used_in_project
+Year,integer,Calendar year of the PLACES estimate,2023,Yes
+LocationID,string,5-digit ZIP Code Tabulation Area identifier used for joins,20740,Yes
+Short_Question_Text,string,Short name of the health measure,Obesity,Yes
+Data_Value,float,Estimated prevalence value for the measure,28.4,Yes
+Data_Value_Type,string,Type of estimate reported by CDC,Crude prevalence,Yes
+TotalPopulation,integer,Total population for the ZCTA,41235,Yes
+TotalPop18plus,integer,Adult population age 18 and older for the ZCTA,31890,Yes

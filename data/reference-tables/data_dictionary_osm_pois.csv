@@ -1,0 +1,4 @@
+column_name,data_type,description,example_value,used_in_project
+name,string,Name of the point of interest or facility,Planet Fitness,Yes
+fclass,string,Feature class used to categorize the OSM point of interest,gym,Yes
+geometry,geometry,Point or polygon geometry for the OSM feature,POINT(...) / POLYGON(...),Yes
