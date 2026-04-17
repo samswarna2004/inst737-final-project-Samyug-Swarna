@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
@@ -71,6 +73,9 @@ def train_obesity_model(
     model.fit(X_train, y_train)
     predictions = model.predict(X_test)
 
+    residuals = y_test - predictions
+
+
     metrics = {
         "rows_used": len(model_df),
         "feature_count": len(available_features),
@@ -86,6 +91,7 @@ def train_obesity_model(
             "zcta5": zcta_test.values,
             "actual_obesity_pct": y_test.values,
             "predicted_obesity_pct": predictions,
+            "residual": residuals.values,
         }
     )
     predictions_df.to_csv(output_dir / "model_1_predictions.csv", index=False)
@@ -97,5 +103,38 @@ def train_obesity_model(
         }
     ).sort_values("importance", ascending=False)
     feature_importance_df.to_csv(output_dir / "model_1_feature_importance.csv", index=False)
+
+    # Actual vs Predicted plot
+    plt.figure(figsize=(8, 6))
+    plt.scatter(y_test, predictions)
+    plt.xlabel("Actual Obesity %")
+    plt.ylabel("Predicted Obesity %")
+    plt.title("Actual vs Predicted Obesity")
+    plt.tight_layout()
+    plt.savefig(output_dir / "actual_vs_predicted.png")
+    plt.close()
+
+    # Residuals plot
+    plt.figure(figsize=(8, 6))
+    plt.scatter(predictions, residuals)
+    plt.axhline(0, linewidth=1)
+    plt.xlabel("Predicted Obesity %")
+    plt.ylabel("Residual")
+    plt.title("Residuals Plot")
+    plt.tight_layout()
+    plt.savefig(output_dir / "residuals_plot.png")
+    plt.close()
+
+    # Feature importance chart
+    plt.figure(figsize=(8, 6))
+    plt.bar(feature_importance_df["feature"], feature_importance_df["importance"])
+    plt.xticks(rotation=45, ha="right")
+    plt.xlabel("Feature")
+    plt.ylabel("Importance")
+    plt.title("Model Feature Importance")
+    plt.tight_layout()
+    plt.savefig(output_dir / "feature_importance.png")
+    plt.close()
+
 
     return metrics
