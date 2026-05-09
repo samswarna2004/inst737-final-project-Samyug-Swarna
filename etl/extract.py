@@ -59,22 +59,33 @@ def get_osm_area_shapefile_path(raw_dir: Path = RAW_DIR) -> Path:
     """Locate the OSM POI area shapefile."""
     return _find_first(raw_dir / "osm", ["gis_osm_pois_a_free_1.shp"])
 
-
 def read_places_data(raw_dir: Path = RAW_DIR) -> pd.DataFrame:
     """Read the CDC PLACES CSV."""
-    return pd.read_csv(get_places_csv_path(raw_dir))
+    try:
+        return pd.read_csv(get_places_csv_path(raw_dir))
+    except Exception as error:
+        raise RuntimeError(f"Could not read CDC PLACES CSV file: {error}") from error
 
 
 def read_census_zctas(raw_dir: Path = RAW_DIR) -> gpd.GeoDataFrame:
     """Read the Census ZCTA shapefile."""
-    return gpd.read_file(get_census_shapefile_path(raw_dir))
+    try:
+        return gpd.read_file(get_census_shapefile_path(raw_dir))
+    except Exception as error:
+        raise RuntimeError(f"Could not read Census ZCTA shapefile: {error}") from error
 
 
 def read_osm_points(raw_dir: Path = RAW_DIR) -> gpd.GeoDataFrame:
     """Read the OSM POI point shapefile."""
-    return gpd.read_file(get_osm_point_shapefile_path(raw_dir))
+    try:
+        return gpd.read_file(get_osm_point_shapefile_path(raw_dir))
+    except Exception as error:
+        raise RuntimeError(f"Could not read OSM point shapefile: {error}") from error
 
 
 def read_osm_areas(raw_dir: Path = RAW_DIR) -> gpd.GeoDataFrame:
     """Read the OSM POI area shapefile."""
-    return gpd.read_file(get_osm_area_shapefile_path(raw_dir))
+    try:
+        return gpd.read_file(get_osm_area_shapefile_path(raw_dir))
+    except Exception as error:
+        raise RuntimeError(f"Could not read OSM area shapefile: {error}") from error

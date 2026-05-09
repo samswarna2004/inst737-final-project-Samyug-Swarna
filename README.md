@@ -63,3 +63,6 @@ A stronger model evaluation, logging, and error handling. Now it saves additiona
 
 Pipeline makes a log file at `logs/pipeline.log`. Added logging statements so that each major stage of the pipeline reports progress more clearly, also because any failures will be easier to see and debug. Additional `try/except` handling was also added so that some stage-specific errors can be logged without immediately breaking the full run.
 
+I also improved the error handling inside the pipeline modules, not only in `main.py`. The extraction, loading, and visualization functions now include their own `try/except` handling so errors are easier to trace across the full pipeline.
+
+
