@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This Project analyzes gym demand and gym competition at the ZIP Code Tabultaion Area level. The real goal is to combine publc health indicators with gym location to see the areas that might have a higher need for fitness servies and thatn compare that need with the current number of gyms locations.
+This project analyzes gym demand and gym competition at the ZIP Code Tabulation Area level. The goal is to combine public health indicators with gym locations to identify areas that may have higher need for fitness services and then compare that need with the current number of gym locations.
 
 The project uses a data science pipeline with extraction, transformation, modeling, and visualization stages. It has  health, geographic, and points-of-interest data to create an analytical dataset at the ZCTA level.
 
@@ -29,7 +29,7 @@ This dataset provides points of interest and area-based POI features for Marylan
 
 ## Project Structure
 
-```text
+
 inst737-final-project-samyug-swarna/
 ├── data/
 │   ├── raw/
@@ -55,3 +55,11 @@ inst737-final-project-samyug-swarna/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+
+
+## Final Project Updates
+
+A stronger model evaluation, logging, and error handling. Now it saves additional evaluation outputs in `data/model_outputs/`, including model metrics, predictions, feature importance, an actual versus predicted plot, and a residuals plot.
+
+Pipeline makes a log file at `logs/pipeline.log`. Added logging statements so that each major stage of the pipeline reports progress more clearly, also because any failures will be easier to see and debug. Additional `try/except` handling was also added so that some stage-specific errors can be logged without immediately breaking the full run.
+

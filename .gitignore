@@ -13,7 +13,5 @@ data/raw/
 *.cpg
 *.xml
 
-# Generated outputs
-data/transformed/
-data/model_outputs/
-data/visualizations/
+
+

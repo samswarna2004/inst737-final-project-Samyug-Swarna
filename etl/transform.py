@@ -45,20 +45,20 @@ def clean_places_data(
     """
     Clean, filter, and reshape the raw CDC PLACES dataset for downstream analysis.
 
-    Stadnardizes column names, converts key fields to conistent types, filters the data
-    to the mot recent year avaiable,limits the data to the selected health measures.
+    standardized column names, converts key fields to consistent types, filters the data
+    to the most recent year avalible,limits the data to the selected health measures.
 
-    Alos dtandardizes the ZCTA identifier, cleans population fields, and removes duplicate
+    Also standardized the ZCTA identifier, cleans population fields, and removes duplicate
     rows, and renames columns to better fit names
 
     Parameters
 
         df : DataFrame
-            The raw CDC PLACES DataGrame loaded from the soruce csv file
+            The raw CDC PLACES DataGrame loaded from the source csv file
 
         measures : list[str] None, deafult=None
             A list of the health measures to keep from the dataset, if no list is provided,
-            the function uses the deafult roject measures stores in DEAULT_MEASURES
+            the function uses the deafult projects measures stores in DEAULT_MEASURES
     
     Returns
         tuple[pd.DataFrame, pd.DataFrame]
